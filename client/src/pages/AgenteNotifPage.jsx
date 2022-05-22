@@ -2,8 +2,7 @@ import { Container, Typography } from "@mui/material";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { GreenButton } from "../components/Button";
-import { SmallCard } from "../components/SmallCard";
+import { SmallCard } from "../components/SmallCard/styles";
 import { Context } from "../context/Context";
 
 export const AgenteNotifPage = () => {
@@ -36,10 +35,12 @@ export const AgenteNotifPage = () => {
     },
   ];
 
-  const { setState } = useContext(Context);
+  const { state, setState } = useContext(Context);
 
   const handleSave = (card) => {
-    sessionStorage.setItem("agenteNotif", card.title);
+    setState({ agenteNotif: card.title });
+    handleNavigate();
+    console.log(state);
   };
 
   const handleNavigate = () => navigate("/data-notificacao");
@@ -57,7 +58,6 @@ export const AgenteNotifPage = () => {
           <img style={{ marginLeft: "27%" }} src={card.icon} />
         </SmallCard>
       ))}
-      <GreenButton onClick={handleNavigate}>Próximo</GreenButton>
     </Container>
   );
 };

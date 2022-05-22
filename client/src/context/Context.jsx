@@ -1,9 +1,10 @@
 import React, { createContext, useState } from "react";
 
-export const DEFAULT_STATE = {
+const DEFAULT_STATE = {
   state: {
     agenteNotif: "",
-    date: "",
+    dataNotif: "",
+    animaisNotif: "",
   },
   setState: () => {},
 };

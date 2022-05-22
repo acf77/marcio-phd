@@ -13,6 +13,13 @@ export const SmallCard = styled(Card)`
   float: left;
   cursor: pointer;
 
+  ${({ isChecked }) =>
+    isChecked &&
+    `
+    color: #f2f2f2;
+    background-color: #217c19;
+  `}
+
   &:hover {
     background-color: #217c19;
     color: #f2f2f2;
