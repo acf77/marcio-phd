@@ -13,45 +13,6 @@ export const AnimaisPage = () => {
   const navigate = useNavigate();
   const { state, setState } = useContext(Context);
 
-  const animaisData = [
-    {
-      title: "Abelhas",
-      icon: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/honeybee_1f41d.png",
-    },
-    {
-      title: "Jumentos, Asnos ou Burros (Asininos)",
-      icon: donkey,
-    },
-    {
-      title: "Bois ou Vacas (Bovinos)",
-      icon: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/cow-face_1f42e.png",
-    },
-    {
-      title: "Búfalos",
-      icon: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/water-buffalo_1f403.png",
-    },
-    {
-      title: "Cabras ou Bodes (Caprinos)",
-      icon: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/goat_1f410.png",
-    },
-    {
-      title: "Cavalos ou Éguas (Equinos)",
-      icon: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/horse-face_1f434.png",
-    },
-    {
-      title: "Galinhas ou Galos",
-      icon: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/chicken_1f414.png",
-    },
-    {
-      title: "Morcegos (que não se alimentam de sangue)",
-      icon: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/bat_1f987.png",
-    },
-    {
-      title: "Outro tipo de animal",
-      icon: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/teddy-bear_1f9f8.png",
-    },
-  ];
-
   const [isBeesChecked, setIsBeesChecked] = useState(false);
   const [bees, setBees] = useState(null);
   const [isDonkeyChecked, setIsDonkeyChecked] = useState(false);
