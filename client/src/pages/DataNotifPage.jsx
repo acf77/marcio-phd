@@ -27,7 +27,7 @@ export const DataNotifPage = () => {
     <>
       {matches ? (
         <Container>
-          <Typography fontSize={22} textAlign="center" padding={5}>
+          <Typography variant="h1" fontSize={22} textAlign="center" padding={5}>
             Quando o problema começou?
           </Typography>
           <MainCard sx={{ width: "75%", padding: "20px" }}>

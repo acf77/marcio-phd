@@ -4,7 +4,7 @@ const DEFAULT_STATE = {
   state: {
     agenteNotif: "",
     dataNotif: "",
-    animaisNotif: "",
+    animaisNotif: [],
   },
   setState: () => {},
 };

@@ -31,8 +31,6 @@ export const AnimaisPage = () => {
   const [bats, setBats] = useState(null);
 
   const handleSave = () => {
-    navigate("/data-notificacao");
-
     const data = [
       bees,
       donkeyData,
@@ -50,6 +48,8 @@ export const AnimaisPage = () => {
         return animal !== null;
       }),
     });
+
+    navigate("/sintomas-notificacao");
   };
 
   const saveBees = () => {
