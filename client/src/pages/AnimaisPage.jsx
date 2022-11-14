@@ -1,5 +1,5 @@
 import { Container, Typography } from "@mui/material";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { GreenButton } from "../components/Button";
@@ -12,6 +12,14 @@ import donkey from "../assets/donkey-icon.png";
 export const AnimaisPage = () => {
   const navigate = useNavigate();
   const { state, setState } = useContext(Context);
+
+  useEffect(() => {
+    localStorage.getItem("animaisNotif") &&
+      setState({
+        ...state,
+        animais: JSON.parse(localStorage.getItem("animaisNotif")),
+      });
+  }, []);
 
   const [isBeesChecked, setIsBeesChecked] = useState(false);
   const [bees, setBees] = useState(null);
@@ -48,6 +56,15 @@ export const AnimaisPage = () => {
         return animal !== null;
       }),
     });
+
+    localStorage.setItem(
+      "animaisNotif",
+      JSON.stringify(
+        data.filter((animal) => {
+          return animal !== null;
+        })
+      )
+    );
 
     navigate("/sintomas-notificacao");
   };
@@ -110,6 +127,7 @@ export const AnimaisPage = () => {
         title="Bois ou Vacas (Bovinos)"
         icon="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/cow-face_1f42e.png"
         handleClick={saveCow}
+        isChecked={isCowChecked}
       />
       <SmallCardComponent
         title="Búfalos"

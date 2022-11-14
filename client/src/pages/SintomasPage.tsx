@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   Accordion,
   AccordionDetails,
@@ -15,92 +15,92 @@ export const SintomasPage = () => {
 
   console.log(state);
 
+  useEffect(() => {
+    localStorage.getItem("animaisNotif") &&
+      // @ts-ignore
+      setState((prevState) => ({
+        ...prevState,
+        animaisNotif: JSON.parse(localStorage.getItem("animaisNotif")),
+      }));
+  }, []);
+
+  const jumentoSymptoms = [
+    "Agressividade",
+    "Andar em círculos",
+    "Anorexia/Perda de apetite",
+    "Apatia/Cansaco",
+    "Cegueira",
+    "Claudicação/Manqueira",
+    "Conjuntivite",
+    "Convulsão",
+    "Diarreia",
+    "Dispneia/ Dificuldade respiratória",
+    "Hipertermia/Febre",
+    "Morte/ Mortalidade",
+    "Movimento de pedalagem",
+    "Paralisia",
+    "Prurido/Coceira",
+    "Sialorreia/Salivação",
+    "Tremores",
+    "Vesículas",
+  ];
+
+  const bovinoSymptoms = [
+    "Agressividade",
+    "Andar em círculos",
+    "Anorexia/Perda de apetite",
+    "Apatia/Cansaco",
+    "Cegueira",
+    "Claudicação/Manqueira",
+    "Convulsão",
+    "Diarreia",
+    "Dispneia/ Dificuldade respiratória",
+    "Distúrbios reprodutivos",
+    "Fraqueza",
+    "Hemorragia",
+    "Lesão cicatrizada em boca/focinho",
+    "Lesão cicatrizada em membros",
+    "Lesão cicatrizada em teto/úbere",
+    "Lesões detectadas no abate",
+    "Lesões na boca",
+    "Hipertermia/Febre",
+    "Morte/ Mortalidade",
+    "Movimento de pedalagem",
+    "Paralisia",
+    "Prurido/Coceira",
+    "Sialorreia/Salivação",
+    "Torcicolo",
+    "Tosse",
+    "Tremores",
+    "Vesículas",
+    "Vesículas em patas",
+    "Vesículas em teto/úbere",
+    "Vesículas na boca/focinho",
+  ];
+
   const renderSymptoms = (animal) => {
     switch (animal) {
       case "Abelhas":
         return (
           <Stack direction="row" alignItems="center">
             <Checkbox />
-            <Typography>Morte/ Mortalidade</Typography>
+            <Typography>Morte/Mortalidade</Typography>
           </Stack>
         );
       case "Jumentos, Asnos ou Burros (Asininos)":
-        return (
-          <>
-            <Stack direction="row" alignItems="center">
-              <Checkbox />
-              <Typography>Agressividade</Typography>
-            </Stack>
-            <Stack direction="row" alignItems="center">
-              <Checkbox />
-              <Typography>Andar em círculos</Typography>
-            </Stack>
-            <Stack direction="row" alignItems="center">
-              <Checkbox />
-              <Typography>Anorexia/Perda de apetite</Typography>
-            </Stack>
-            <Stack direction="row" alignItems="center">
-              <Checkbox />
-              <Typography>Apatia/Cansaco</Typography>
-            </Stack>
-            <Stack direction="row" alignItems="center">
-              <Checkbox />
-              <Typography>Cegueira</Typography>
-            </Stack>
-            <Stack direction="row" alignItems="center">
-              <Checkbox />
-              <Typography>Claudicação/Manqueira</Typography>
-            </Stack>
-            <Stack direction="row" alignItems="center">
-              <Checkbox />
-              <Typography>Conjuntivite</Typography>
-            </Stack>
-            <Stack direction="row" alignItems="center">
-              <Checkbox />
-              <Typography>Convulsão</Typography>
-            </Stack>
-            <Stack direction="row" alignItems="center">
-              <Checkbox />
-              <Typography>Diarreia</Typography>
-            </Stack>
-            <Stack direction="row" alignItems="center">
-              <Checkbox />
-              <Typography>Dispneia/ Dificuldade respiratória</Typography>
-            </Stack>
-            <Stack direction="row" alignItems="center">
-              <Checkbox />
-              <Typography>Hipertermia/Febre</Typography>
-            </Stack>
-            <Stack direction="row" alignItems="center">
-              <Checkbox />
-              <Typography>Morte/ Mortalidade</Typography>
-            </Stack>
-            <Stack direction="row" alignItems="center">
-              <Checkbox />
-              <Typography>Movimento de pedalagem</Typography>
-            </Stack>
-            <Stack direction="row" alignItems="center">
-              <Checkbox />
-              <Typography>Paralisia</Typography>
-            </Stack>
-            <Stack direction="row" alignItems="center">
-              <Checkbox />
-              <Typography>Prurido/Coceira</Typography>
-            </Stack>
-            <Stack direction="row" alignItems="center">
-              <Checkbox />
-              <Typography>Sialorreia/Salivação</Typography>
-            </Stack>
-            <Stack direction="row" alignItems="center">
-              <Checkbox />
-              <Typography>Tremores</Typography>
-            </Stack>
-            <Stack direction="row" alignItems="center">
-              <Checkbox />
-              <Typography>Vesículas</Typography>
-            </Stack>
-          </>
-        );
+        return jumentoSymptoms.map((symptom) => (
+          <Stack direction="row" alignItems="center">
+            <Checkbox />
+            <Typography>{symptom}</Typography>
+          </Stack>
+        ));
+      case "Bois ou Vacas (Bovinos)":
+        return bovinoSymptoms.map((symptom) => (
+          <Stack direction="row" alignItems="center">
+            <Checkbox />
+            <Typography>{symptom}</Typography>
+          </Stack>
+        ));
       default:
         break;
     }

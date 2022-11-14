@@ -17,6 +17,7 @@ export const DataNotifPage = () => {
 
   const handleDate = (e) => {
     setState({ ...state, dataNotif: JSON.stringify(e) });
+    localStorage.setItem("dataNotif", JSON.stringify(e));
     handleNavigate();
     console.log(state);
   };

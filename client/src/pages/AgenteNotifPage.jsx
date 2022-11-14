@@ -40,6 +40,7 @@ export const AgenteNotifPage = () => {
   const handleSave = (card) => {
     setState({ agenteNotif: card.title });
     handleNavigate();
+    localStorage.setItem("agenteNotif", card.title);
     console.log(state);
   };
 
